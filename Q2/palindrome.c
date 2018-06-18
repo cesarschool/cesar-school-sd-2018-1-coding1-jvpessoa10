@@ -11,13 +11,33 @@
  * Output: true se a sentença é um palídromo, falso caso negativo.
  */
 
+bool isEqual(char str1[],char str2[],int len){
+    for(int i = 0;i<len;i++){
+        if(str1[i] != str2[i]){
+            printf("%s não é palindrome.", str1);
+            return 0;
+        }
+    }
+    printf("%s é palindrome.", str1);
+    return 1;
+}
+
 bool isPalindrome (char sentence[], int length) {
     printf("\nisPalindrome::START: %s, %d\n", sentence, length);
 
-    // TODO: YOUR CODE HERE!
+    char tmp[length]; //array invertido de sentence[]
+
+    //executa a inversão
+    for(int i = 1;i<=length;i++){
+        tmp[length-i] = sentence[i-1];
+    }
     
+
+    isEqual(sentence,tmp,length);
     printf("\nisPalindrome::END\n");
-    return false;
+    
+    
+    
 }
 
 int main()
